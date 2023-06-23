@@ -12,10 +12,10 @@ public class Controller {
     private Coach footballCoach;
     private Coach basketballCoach;
     @Autowired
-    public Controller(@Qualifier("footballCoach") Coach coach_one, @Qualifier("basketballCoach") Coach coach_two) {
+    public Controller(@Qualifier("footballCoach") Coach footballCoach, @Qualifier("basketballCoach") Coach basketballCoach) {
 
-        footballCoach = coach_one;
-        basketballCoach = coach_two;
+        this.footballCoach = footballCoach;
+        this.basketballCoach = basketballCoach;
     }
 
     @GetMapping("/")
@@ -23,7 +23,7 @@ public class Controller {
         return "Hello World!";
     }
     @GetMapping("/football-coach")
-    public String coach(){
+    public String football_coach(){
         return footballCoach.getInfo();
     }
     @GetMapping("/basketball-coach")
